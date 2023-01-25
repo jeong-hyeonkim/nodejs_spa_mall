@@ -1,0 +1,153 @@
+1.회원가입 API 인터페이스 작성
+
+request
+method: post
+url: /users
+body:{ email: string, password: string, name: string}
+
+response
+status code: 201
+payload: {token: string}
+
+
+2.로그인 API 인터페이스 작성
+
+request
+method: post
+url:/login
+body:{ email: string, password: string}
+
+response
+status code: 201
+payload: {token: string}
+
+
+3. 회원정보수정 API작성
+
+request
+method: put
+url: /users/:userId
+body: {email: string, password: string, name: string}
+
+response
+status code: 200
+payload: {message: string}
+
+
+4. 회원 탈퇴
+
+request
+method: delete
+url: /users/:userId
+
+response
+status code: 200
+payload: {message: string}
+
+
+
+5. 게시글 작성 api
+
+request
+method: post
+url: /articles
+body: {autorId: number, title: string, content: string}
+
+response
+status code: 201
+payload: {articleId: number}
+
+
+
+6. 게시글 목록 조회 api
+
+request
+method: get
+url: /articles
+
+response
+status code: 200
+payload: {articleId: number}[]
+
+
+7. 게시글 상세 조회 api
+
+request
+method: get
+url: /articles/:articleId
+
+response
+status code: 200
+payload: {articleId: number, autorId: number, title: string, content: string}
+
+
+8. 게시글 수정 api
+
+request
+method: put
+url: /articles/:articleId
+body: {title: string, content: string}
+
+response
+status code: 200
+payload: {title: string, content: string}
+
+
+
+9. 게시글 삭제 api
+
+request
+method: delete
+url: /articles/:articleId
+
+response
+status code: 200
+payload: {message: string}
+
+
+10. 특정 게시글에 댓글 작성 api
+
+request
+method: post
+url: /articles/:articleId/comments
+body: {autorId: number, comment: string}
+
+response
+status code: 201
+payload: { commentId: number}
+
+
+11. 특정 게시글에 달린 댓글 목록 조회 api
+
+request
+method: get
+url: /articles/:articleId/comments
+
+response
+status code: 200
+payload: {autorId: number, commentId: number, content: string}[]
+
+
+12. 특정 게시글에 달린 댓글 수정 api
+
+request
+method: put
+url: /articles/:articleId/comments/:commentId
+body: { comment: string}
+
+response
+status code: 200
+payload: {message: string}
+
+
+
+13. 특정 게시글에 달린 댓글 삭제 api
+
+request
+method: delete
+url: /articles/:articleId/comments/:commentId
+
+
+response
+status code: 200
+payload: {message: string}
